@@ -18,6 +18,7 @@
 #include "imgui/imgui_impl_opengl3.h"
 
 #include "tests\ClearColorTest.h"
+#include "tests\RenderingObjectsTest.h"
 
 int main(void)
 {
@@ -101,7 +102,7 @@ int main(void)
 
 		ImGui::StyleColorsDark();
 
-		Test::ClearColorTest clearColorTest;
+		Test::RenderingObjectsTest objectsTest(renderer, "res/img/ColorWars.PNG", "res/shaders/Basic.shader");
 
 		//bool show_demo_window = true;
 		//bool show_another_window = false;
@@ -115,13 +116,14 @@ int main(void)
 		{
 			renderer.Clear();
 
-			clearColorTest.OnUpdate(0.f);
-			clearColorTest.OnRender();
+			objectsTest.OnUpdate(0.f);
+			objectsTest.OnRender();
 
 			ImGui_ImplOpenGL3_NewFrame();
 			ImGui_ImplGlfw_NewFrame();
 			ImGui::NewFrame();
-			clearColorTest.OnImGuiRender();
+
+			objectsTest.OnImGuiRender();
 
 			//{
 			//	glm::mat4 model = glm::translate(glm::mat4(1.0f), translationA);
