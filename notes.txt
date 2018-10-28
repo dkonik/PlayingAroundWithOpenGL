@@ -1,2 +1,0 @@
-Where left of:
-1) You have the video saved, just in the process of creating a vertex buffer 
